@@ -450,7 +450,7 @@
                             <div class="stat-label">自动化工具</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number">90%+</div>
+                            <div class="stat-number">85%+</div>
                             <div class="stat-label">效率提升</div>
                         </div>
                     </div>
@@ -585,37 +585,39 @@
                     </div>
 
                     <p class="tool-description">
-                        <strong>问题背景：</strong>每周周一周二需要统计上周试音数，并平均分配给本周未请假的初审员。
-                        原始流程需要：①登录平台统计试音数（AI无法帮助）②手动分配任务③更新各初审员分配表，
-                        整个过程至少需要<strong>2小时</strong>。
+                        <strong>问题背景：</strong>每周周一周二需要统计上周试音数，并平均分配给本周未请假的初审员，同时生成终审批量开通表格。
+                        原始流程需要：①登录平台统计试音数（AI无法帮助）②手动分配任务③更新各初审员分配表④手动生成终审批量表格，
+                        整个过程至少需要<strong>3小时</strong>。
                     </p>
 
                     <div class="comparison">
                         <div class="comparison-item">
                             <div class="comparison-label">优化前</div>
-                            <div class="comparison-value before">2 小时/周</div>
+                            <div class="comparison-value before">3 小时/周</div>
                         </div>
                         <div class="comparison-item">
                             <div class="comparison-label">优化后</div>
-                            <div class="comparison-value after">30 分钟/周</div>
+                            <div class="comparison-value after">&lt; 30 分钟/周</div>
                         </div>
                     </div>
 
                     <p class="tool-description">
                         <strong>解决方案：</strong>采用<strong>LPT贪心算法</strong>开发智能分配工具，只需统计好试音数并填写到表格，
-                        工具自动完成分配、更新所有表格。支持请假处理和补偿机制（上周请假本周多分配20%）。
+                        一行命令即可自动完成分配、更新所有表格，同时生成终审批量开通表格。
+                        支持请假处理和补偿机制（上周请假本周多分配20%）。
                     </p>
 
                     <h3 style="color: #333; margin: 25px 0 15px 0; font-size: 1.2em;">核心功能</h3>
                     <ul class="feature-list">
+                        <li><strong>一行命令双表生成：</strong>同时生成初审分配表格和终审批量开通表格</li>
                         <li>LPT贪心算法（最优分配策略）</li>
                         <li>同一本书不拆分（业务优化）</li>
                         <li>自动处理请假情况</li>
                         <li>补偿机制（上周请假多20%）</li>
                         <li>自动更新总表和个人表</li>
-                        <li>支持手动确认分配结果</li>
-                        <li>生成终审批量开通表格</li>
-                        <li>详细分配统计和预览</li>
+                        <li>CSV数据自动解析提取</li>
+                        <li>智能计算截止日期</li>
+                        <li>表格自动分类保存到对应文件夹</li>
                     </ul>
 
                     <div class="algorithm-box">
@@ -625,11 +627,17 @@
                     </div>
 
                     <div class="highlight-box">
-                        <strong>工作流程：</strong><br>
-                        1. 人工统计试音数（30分钟，AI无法帮助）<br>
-                        2. 填写表格前三列（书名、截止日期、试音数）<br>
-                        3. 运行工具自动分配（10秒）<br>
-                        4. 确认并保存结果
+                        <strong>升级亮点：</strong><br>
+                        一条命令即可完成两个任务：<br>
+                        1. 智能分配初审任务（初审分配表自动保存到对应文件夹）<br>
+                        2. 生成终审批量开通表格（自动保存到终审批量开通文件夹）<br><br>
+                        <strong>时间优化：</strong>从3小时降至半小时（主要是检查核对数据+更新在线表格）
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>使用示例：</strong><br>
+                        <code>python distribute.py --input 本周.xlsx --csv-dates 4.29上传 4.30上传 --leave 泠月</code><br><br>
+                        一条命令完成：初审任务分配 + 终审批量表格生成 + 所有表格自动更新
                     </div>
 
                     <div class="tech-stack">
@@ -662,7 +670,7 @@
 
         <div class="footer">
             <p><strong>开发时间：</strong>2026年4月</p>
-            <p><strong>开发者：</strong>喜马拉雅音频后期交付运营实习生</p>
+            <p><strong>开发者：</strong>童瑶</p>
             <p><strong>技术支持：</strong>Claude Code (AI辅助开发)</p>
         </div>
     </div>
