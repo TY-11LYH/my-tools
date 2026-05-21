@@ -361,6 +361,132 @@
             font-size: 0.9em;
         }
 
+        .workflow-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .workflow-title {
+            text-align: center;
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .workflow-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .workflow-step {
+            flex: 1;
+            min-width: 280px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .workflow-step::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .workflow-step:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .step-title {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .step-tool {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+        }
+
+        .step-description {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .step-time {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .time-label {
+            color: #888;
+            font-size: 0.85em;
+        }
+
+        .time-value {
+            color: #27ae60;
+            font-weight: 700;
+            font-size: 1em;
+        }
+
+        .workflow-summary {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .workflow-summary h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .workflow-summary p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
         .footer {
             background: #f8f9fa;
             padding: 30px 40px;
@@ -399,6 +525,17 @@
             .download-btn {
                 padding: 15px 35px;
                 font-size: 1.1em;
+            }
+
+            .workflow-container {
+                flex-direction: column;
+            }
+
+            .workflow-step::after {
+                right: 50%;
+                top: auto;
+                bottom: -25px;
+                transform: translateX(50%) rotate(90deg);
             }
         }
     </style>
@@ -453,6 +590,79 @@
                             <div class="stat-number">85%+</div>
                             <div class="stat-label">效率提升</div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 工作流程 -->
+            <div class="section">
+                <h2 class="section-title">全流程自动化工作流</h2>
+                <div class="workflow-section">
+                    <div class="workflow-title">从甲方确认到权限开通的完整自动化链路</div>
+
+                    <div class="workflow-container">
+                        <!-- 第一步 -->
+                        <div class="workflow-step">
+                            <div class="step-number">1</div>
+                            <div class="step-tool">话术生成器</div>
+                            <div class="step-title">📋 甲方信息确认</div>
+                            <div class="step-description">
+                                与甲方确认招募信息，包括书名、招募数量、字数、后期要求、薪资待遇等关键信息
+                            </div>
+                            <div class="step-time">
+                                <span class="time-label">优化前：</span>
+                                <span class="time-value">5分钟/次</span>
+                            </div>
+                            <div class="step-time">
+                                <span class="time-label">优化后：</span>
+                                <span class="time-value">10秒/次</span>
+                            </div>
+                        </div>
+
+                        <!-- 第二步 -->
+                        <div class="workflow-step">
+                            <div class="step-number">2</div>
+                            <div class="step-tool">批量导入转换</div>
+                            <div class="step-title">📊 批量数据导入</div>
+                            <div class="step-description">
+                                将腾讯文档导出的CSV数据转换为LMS后台要求的Excel格式，自动处理字段映射、后期条件编码、薪资解析等
+                            </div>
+                            <div class="step-time">
+                                <span class="time-label">优化前：</span>
+                                <span class="time-value">3小时/周</span>
+                            </div>
+                            <div class="step-time">
+                                <span class="time-label">优化后：</span>
+                                <span class="time-value">10分钟/周</span>
+                            </div>
+                        </div>
+
+                        <!-- 第三步 -->
+                        <div class="workflow-step">
+                            <div class="step-number">3</div>
+                            <div class="step-tool">初审任务分配</div>
+                            <div class="step-title">⚖️ 任务智能分配</div>
+                            <div class="step-description">
+                                采用LPT贪心算法智能分配初审任务，同时生成终审批量开通表格，自动更新所有相关表格
+                            </div>
+                            <div class="step-time">
+                                <span class="time-label">优化前：</span>
+                                <span class="time-value">3小时/周</span>
+                            </div>
+                            <div class="step-time">
+                                <span class="time-label">优化后：</span>
+                                <span class="time-value">&lt;30分钟/周</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="workflow-summary">
+                        <h3>🚀 全流程自动化成果</h3>
+                        <p>
+                            <strong>从甲方确认 → 数据导入 → 任务分配 → 权限开通</strong><br>
+                            利用AI技术在每个关键环节减少重复琐碎工作，实现<strong>全流程半自动化</strong><br>
+                            每周节省<strong>4.5小时+</strong>，效率提升<strong>85%+</strong>，让运营工作更专注、更高效
+                        </p>
                     </div>
                 </div>
             </div>
